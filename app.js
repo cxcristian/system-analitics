@@ -4,9 +4,39 @@ const cli_tool = require ('./cli-tool');
 const registro_sistema = require ('./registro-sistema');
 //importacion del modulo system-monitor
 const system_monitor = require ('./system-monitor');
-
-
+//importacion del modulo readline para interaccion con el usuario
+const readline = require('readline');
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+//este sera el unico rl global para evitar jodas
 //llamado de los modulos
-cli_tool();
-registro_sistema();
-system_monitor();
+function mostrarMenu() {
+    rl.question("Ingrese el modulo que desea ejecutar (cli, registro, monitor, salir): ", (eleccion) => {
+        eleccion = eleccion.toLowerCase();
+
+        switch (eleccion) {
+            case "cli":
+                cli_tool(rl, mostrarMenu);
+                return; // no llamamos de nuevo aquí porque lo hará cli_tool al salir
+            case "registro":
+                registro_sistema(mostrarMenu);
+                return;
+            case "monitor":
+                system_monitor(mostrarMenu);
+                return;
+            case "salir":
+                console.log("Saliendo del sistema...");
+                rl.close();
+                return;
+            default:
+                console.log("Opción no válida.");
+        }
+
+        // si no se ejecutó ningún módulo válido, volvemos a preguntar
+        mostrarMenu();
+    });
+}
+
+mostrarMenu();

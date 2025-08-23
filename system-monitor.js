@@ -3,7 +3,7 @@
   Incluye detalles sobre el sistema operativo, CPU, memoria, tiempo de actividad y usuario actual.
  */
  // Importa el módulo nativo 'os' para obtener información del sistema
-function system_monitor(){
+function system_monitor(callbackVolver){
 const os = require('os');
 
 //Muestra información relevante del sistema en la consola.
@@ -22,6 +22,7 @@ function mostrarInformacion() {
   console.log(`Usuario: ${os.userInfo().username}`); // Usuario actual
 
   console.log('========================\n');
+  callbackVolver()
 }
 
 // Ejecuta la función para mostrar la información del sistema

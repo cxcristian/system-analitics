@@ -1,5 +1,7 @@
+
+
 //Practica uno: Registro y Depuración Avanzada
-function registro_sistema(){
+function registro_sistema(callbackVolver){
 //Inicio del codigo (simple console.log)
 console.log("=== Inicio del sistema ===");
 // Console.time es un metodo de consola que permite medir el tiempo que tarda en ejecutarse un bloque de codigo
@@ -30,6 +32,8 @@ console.table(usuarios);
 //Termina de contar el codigo (Nota: toca indicar el inicio y el fin del bloqeue a medir)
 console.timeEnd("ProcesoPrincipal");
 //Fin del codigo.
-console.log("=== Fin del sistema ===");
+console.log("=== Fin del modulo ===");
+callbackVolver()
 }
+
 module.exports = registro_sistema;
