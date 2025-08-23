@@ -6,10 +6,6 @@ const registro_sistema = require ('./registro-sistema');
 const system_monitor = require ('./system-monitor');
 //importacion del modulo readline para interaccion con el usuario
 const readline = require('readline');
-
-//importacion de chalk
-const chalk = require("chalk");
-
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
@@ -17,15 +13,7 @@ const rl = readline.createInterface({
 //este sera el unico rl global para evitar jodas
 //llamado de los modulos
 function mostrarMenu() {
-      console.log(chalk.bold.cyan("\n=== MENÚ PRINCIPAL ==="));
-    console.log(chalk.yellow("Ingrese el módulo que desea ejecutar:"));
-    console.log(
-        chalk.green(" - cli") + ", " +
-        chalk.green("registro") + ", " +
-        chalk.green("monitor") + ", " +
-        chalk.red("salir")
-    );
-    rl.question("Opcion: ", (eleccion) => {
+    rl.question("Ingrese el modulo que desea ejecutar (cli, registro, monitor, salir): ", (eleccion) => {
         eleccion = eleccion.toLowerCase();
 
         switch (eleccion) {
@@ -51,4 +39,4 @@ function mostrarMenu() {
     });
 }
 
-mostrarMenu();
+mostrarMenu(); 
