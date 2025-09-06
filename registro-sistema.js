@@ -20,7 +20,7 @@ accesoUsuario('Carlos');
 //ni registro)
 console.warn("Capacidad de usuarios alcanzando el límite");
 //Console.error es un metodo de consola que permite mostrar mensajes de error en la consola
-//Aqui se aplica si o si, ya que no tiene validacion ni registro
+//Aqui se aplica si o si, ya que no tiene validacion ni registro carajo!!!
 console.error("Error: No se pudo conectar a la base de datos");
 // array con los usuarios y sy rol
 const usuarios = [
